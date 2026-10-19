@@ -25,13 +25,13 @@ s2_ndvi_doy_max,satelital_s2,conservada,,
 s2_ndvi_auc,satelital_s2,conservada,,
 s2_evi_n_validos,calidad_satelital,descartada,"Cuenta de observaciones útiles: depende de nubes y órbita, no de la parcela (indicador de ubicación)",
 s2_evi_media,satelital_s2,conservada,,
-s2_evi_std,satelital_s2,conservada,,
+s2_evi_std,satelital_s2,descartada,Redundante: |rho| > 0.95 con una variable ya conservada,s2_ndvi_std
 s2_evi_max,satelital_s2,conservada,,
 s2_evi_doy_max,satelital_s2,conservada,,
 s2_evi_auc,satelital_s2,conservada,,
 s2_lai_n_validos,calidad_satelital,descartada,"Cuenta de observaciones útiles: depende de nubes y órbita, no de la parcela (indicador de ubicación)",
 s2_lai_media,satelital_s2,descartada,Redundante: |rho| > 0.95 con una variable ya conservada,s2_evi_media
-s2_lai_std,satelital_s2,descartada,Redundante: |rho| > 0.95 con una variable ya conservada,s2_evi_std
+s2_lai_std,satelital_s2,conservada,,
 s2_lai_max,satelital_s2,descartada,Redundante: |rho| > 0.95 con una variable ya conservada,s2_evi_max
 s2_lai_doy_max,satelital_s2,conservada,,
 s2_lai_auc,satelital_s2,descartada,Redundante: |rho| > 0.95 con una variable ya conservada,s2_evi_auc
@@ -77,11 +77,11 @@ pl_msavi_media,satelital_planet,descartada,Redundante: |rho| > 0.95 con una vari
 pl_msavi_std,satelital_planet,descartada,Redundante: |rho| > 0.95 con una variable ya conservada,pl_evi_std
 pl_msavi_max,satelital_planet,conservada,,
 pl_msavi_doy_max,satelital_planet,conservada,,
-pl_msavi_auc,satelital_planet,descartada,Redundante: |rho| > 0.95 con una variable ya conservada,pl_evi_auc
+pl_msavi_auc,satelital_planet,descartada,Redundante: |rho| > 0.95 con una variable ya conservada,s2_evi_auc
 pl_ndvi_mes_04,satelital_planet,conservada,,
 pl_ndvi_mes_05,satelital_planet,conservada,,
 pl_ndvi_mes_06,satelital_planet,conservada,,
-pl_ndvi_mes_07,satelital_planet,conservada,,
+pl_ndvi_mes_07,satelital_planet,descartada,Redundante: |rho| > 0.95 con una variable ya conservada,s2_ndvi_mes_07
 pl_ndvi_mes_08,satelital_planet,descartada,Redundante: |rho| > 0.95 con una variable ya conservada,s2_ndvi_mes_08
 pl_ndvi_mes_09,satelital_planet,conservada,,
 pl_ndvi_mes_10,satelital_planet,descartada,Redundante: |rho| > 0.95 con una variable ya conservada,s2_ndvi_mes_10
