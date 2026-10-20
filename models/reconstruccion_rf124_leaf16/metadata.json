@@ -133,5 +133,4 @@
     "tmin_max_temporada",
     "AREA_HA"
   ],
-  "nota": "Modelo reentrenado con todas las parcelas etiquetadas; no equivale a un archivo histórico recuperado."
 }
