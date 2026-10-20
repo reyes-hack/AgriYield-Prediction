@@ -5,44 +5,25 @@ import gradio as gr
 import matplotlib.pyplot as plt
 import math
 from pathlib import Path
+import os
 
-# =========================================
-# 1. CARGA DEL MODELO
-# =========================================
 
-MODEL_PATH = Path("../Models/RandomForestModel.joblib")
 
-model_dict = joblib.load(MODEL_PATH)
+MODEL_PATH = Path("../Models/RF124_leaf16_final.joblib")
 
-model = model_dict["modelo"]
-features = list(model_dict["variables"])
+model = joblib.load(MODEL_PATH)
 
-numero_variables = len(features)
-
-if numero_variables == 0:
-    raise ValueError("El modelo no tiene variables registradas.")
 
 # Obtener los nombres de las variables
 # y comprobar que coincidan con el entrenamiento.
 if hasattr(model, "feature_names_in_"):
     nombre_variables = list(model.feature_names_in_)
 
-    if set(nombre_variables) != set(features):
-        raise ValueError(
-            "Las variables guardadas no coinciden "
-            "con las del modelo entrenado."
-        )
-else:
-    nombre_variables = features.copy()
 
-
-# =========================================
-# 2. FUNCIÓN DE PREDICCIÓN
-# =========================================
 
 def predict(*valores):
 
-    if len(valores) != numero_variables:
+    if len(valores) != len(nombre_variables):
         raise gr.Error(
             "El número de valores no coincide con "
             "las variables del modelo."
@@ -64,7 +45,7 @@ def predict(*valores):
     # Construir el DataFrame con los nombres correctos
     data = pd.DataFrame(
         [valores],
-        columns=features
+        columns=nombre_variables
     )
 
     # Respetar el orden utilizado en el entrenamiento
@@ -294,7 +275,7 @@ with gr.Blocks(
 
     # EVENTO PARA LIMPIAR LOS CAMPOS
     limpiar.click(
-        fn=lambda: [None] * (numero_variables + 2),
+        fn=lambda: [None] * (len(nombre_variables) + 2),
         inputs=[],
         outputs=entradas + [salida, estado]
     )
