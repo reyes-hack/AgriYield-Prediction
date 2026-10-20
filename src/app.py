@@ -9,7 +9,14 @@ import os
 
 
 
-MODEL_PATH = Path("../Models/RF124_leaf16_final.joblib")
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+
+# Ruta absoluta al modelo
+MODEL_PATH = (
+    PROJECT_ROOT
+    / "Models"
+    / "RF124_leaf16_final.joblib"
+)
 
 model = joblib.load(MODEL_PATH)
 
